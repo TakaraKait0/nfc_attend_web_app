@@ -28,6 +28,13 @@ def slack(message):
     payload = {"text": message}
     result = requests.post(webhook_url, json=payload)
 
+def teams(message):
+    webhook_url = "<WebhookのURLを記載する>"
+
+    teams_obj = pymsteams.connectorcard(webhook_url)
+    teams_obj.text(message)
+    teams_obj.send()
+
 def on_connect(tag: nfc.tag.Tag) -> bool:
     print("connected")
     dump_str = "\n".join(tag.dump())
@@ -40,6 +47,7 @@ def on_connect(tag: nfc.tag.Tag) -> bool:
     if result:
         class_name, student_name = result
         slack(f"{class_name} {student_name} 活動します")
+        teams(f"{class_name} {student_name} 活動します")
     return True
 
 def on_release(tag: nfc.tag.Tag) -> None:
