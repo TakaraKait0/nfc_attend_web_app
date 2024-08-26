@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>出席登録</title>
+</head>
+<body>
+    <h1>出席登録ページ</h1>
+
+    <form method="post" action="{% url 'attend' %}">
+        {% csrf_token %}
+        <button type="submit">出席登録</button>
+    </form>
+</body>
+</html>

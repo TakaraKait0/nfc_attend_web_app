@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NFCカード登録</title>
+</head>
+<body>
+    <h1>NFCカード登録ページ</h1>
+
+    <form action="{% url 'register_nfc' %}" method="post">
+        {% csrf_token %}
+        <label for="name">名前:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="grade">学年:</label><br>
+        <input type="text" id="grade" name="grade" required><br><br>
+
+        <input type="submit" value="登録">
+    </form>
+
+    <button onclick="window.location.href='{% url 'index' %}'">戻る</button>
+</body>
+</html>
