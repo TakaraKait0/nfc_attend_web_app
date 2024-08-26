@@ -24,7 +24,7 @@ def fetch_data_from_db(extracted_id):
     return result
 
 def slack(message):
-    webhook_url = "slackでbotを作成するときのURL"
+    webhook_url = "<slackでbotを作成するときのURL>"
     payload = {"text": message}
     result = requests.post(webhook_url, json=payload)
 
